@@ -64,7 +64,7 @@ settings.acqSatelliteList   = 1:32;         %[PRN numbers]
 % Band around IF to search for satellite signal. Depends on max Doppler
 settings.acqSearchBand      = 20;           %[kHz]
 % Threshold for the signal presence decision rule
-settings.acqThreshold       = 5;
+settings.acqThreshold       = 2.5;
 % Threshold for using the tracking measurement in the solution
 settings.trackingThreshold  = 25.0;
 

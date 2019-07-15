@@ -40,7 +40,15 @@ if (fidI > 0)&&(fidQ > 0)
     save('trackingResults', ...
                       'trackResults', 'settings', 'acqResults', 'channel');    
     disp ('   Ploting results...');
+    
+    PRNlist= zeros(1, settings.numberOfChannels);
+    for i=1:settings.numberOfChannels
+        if channel(i).PRN ~= 0
+            PRNlist(i)=channel(i).PRN;
+        end
+    end    
+    plotIndex = find(PRNlist~=0);
     if settings.plotTracking
-        plotTracking(1:settings.numberOfChannels, trackResults, settings);
+        plotTracking(plotIndex, trackResults, settings);
     end
 end

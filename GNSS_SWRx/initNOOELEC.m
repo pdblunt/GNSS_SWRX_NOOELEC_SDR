@@ -8,7 +8,7 @@
 % This script initializes settings and environment of the software receiver.
 % Then the processing is started.  Processing is now split into three stages
 % Acquisition, Tracking and Navigation.  Use runAcquisition and 
-% runTracking_...(many different types) and runNav to perform each stage. 
+% (runTracking_FLL or runTracking_PLL) and runNav to perform each stage. 
 %
 % Adapted and updated by P Blunt 2019
 %% Clean up the environment first =========================================
@@ -46,5 +46,5 @@ disp('  Raw IF data plotted ')
 disp('  (change settings in "initSettingsNOOELEC.m" to reconfigure)')
 disp(' ');
 disp('  Processing is now split into three stages;  Acquisition, Tracking and Navigation')
-disp('  Use runAcquisition and runTracking_...(many different types) and runNav to perform each stage ')
+disp('  Use runAcquisition and (runTracking_FLL or runTracking_PLL) and runNav to perform each stage ')
 
