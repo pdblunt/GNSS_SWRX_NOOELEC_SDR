@@ -1,9 +1,7 @@
 # SWRX_NOOELEC_SDR
 
 ## dataCapture folder
-This folder contains a simulink model that allow you to configure the Nooelec SDR front end, visualise the raw data in the time and frequency domains and capture raw data.
-
-**Record_and_view_L1_Signal.slx** – Allows you to configure the RF front end, view the time domain and spectrum and record raw data for the software receiver.  NOTE – When recording raw data, comment out other monitors (spectrum, etc) and set Matlab task priority to ‘real time’ in the task manager.
+This folder contains a simulink model, **Record_and_view_L1_Signal.slx** , that allows you to configure the Nooelec SDR front end, visualise the raw data in the time and frequency domains and capture raw data.  **NOTE** – When recording raw data, comment out other monitors (spectrum, etc) and set Matlab task priority to ‘real time’ in the task manager.
 
 ## dataLogs folder
 
