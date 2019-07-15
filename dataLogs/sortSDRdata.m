@@ -1,5 +1,5 @@
 % split SDR data into separate I and Q files for the SW receiver
-% written by P. Bunt 2019
+% written by P. Blunt 2019
 
 clear all;
 % input file name
