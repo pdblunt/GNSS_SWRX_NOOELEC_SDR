@@ -2,19 +2,25 @@
 % written by P. Blunt 2019
 
 clear all;
-% input file name
-logFileName = 'test_1p5MHz_1kHz_figure8_4';
-% load the file
+logFileName = 'test3';
+
 load([logFileName '.mat']);
-% output file names
-filenameI = [ logFileName '_dataI.dat'];
+
+
+filenameI = [logFileName '_dataI.dat'];
 filenameQ = [logFileName '_dataQ.dat'];
-% open output fopen	
 fidI = fopen(filenameI, 'w');
 fidQ = fopen(filenameQ, 'w');
-% write data to output files in int8 format
-fwrite(fidI, real(rtlsdr_data.data), 'int8');
-fwrite(fidQ, imag(rtlsdr_data.data), 'int8');
-% close files
+
+for i = 1:length(rtlsdr_data.data)
+   
+    dataI = real(rtlsdr_data.data(i,:));
+    dataQ = imag(rtlsdr_data.data(i,:));
+    
+    fwrite(fidI, dataI, 'int8');
+    fwrite(fidQ, dataQ, 'int8');
+    
+end
+
 fclose(fidI);
 fclose(fidQ);
