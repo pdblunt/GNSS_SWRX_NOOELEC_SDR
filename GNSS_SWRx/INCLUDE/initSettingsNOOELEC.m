@@ -14,12 +14,12 @@ function [settings, EKF_track]  = initSettingsNOOELEC()
 % Adapted and updated by P Blunt 2019
 
 %% Processing settings ====================================================
-% Number of milliseconds to be processed used 36000 + any transients (see
-% below - in Nav parameters) to ensure nav subframes are provided
+% Number of milliseconds to be processed used 40000 or greater for
+% navigation
 settings.msToProcess        = 55000;        %[ms]
 
 % Number of channels to be used for signal processing
-settings.numberOfChannels   = 6;
+settings.numberOfChannels   = 8;
 
 %% Raw signal file name and other parameter ===============================
 % This is a "default" name of the data file (signal record) to be used in
@@ -27,7 +27,7 @@ settings.numberOfChannels   = 6;
 % The NOELEC generates two files one to I and Q baseband data, therefore 
 % they are given the same root and just end in either I or Q
 
-logFileName = 'L1_m1kHz_1P5MHz_roof_point6_60s_try3';
+logFileName = 'L1_m1kHz_1P5MHz_roof_point6_60s';
 
 filenameI = [logFileName '_dataI.dat'];
 filenameQ = [logFileName '_dataQ.dat'];
