@@ -115,8 +115,10 @@ for currMeasNr = 1:fix((settings.msToProcess - max(subFrameStart)) / ...
     readyChnListTracking = [];
 
     for i = 1:length(readyChnList)
-        if trackResults(i).statusArray(subFrameStart(i) + settings.navSolPeriod * (currMeasNr-1))~=0
-            readyChnListTracking = [readyChnListTracking readyChnList(i)];
+        if subFrameStart(i) ~= 0
+            if trackResults(i).statusArray(subFrameStart(i) + settings.navSolPeriod * (currMeasNr-1))~=0
+                readyChnListTracking = [readyChnListTracking readyChnList(i)];
+            end
         end
     end
     
