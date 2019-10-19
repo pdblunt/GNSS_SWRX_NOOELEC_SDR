@@ -16,7 +16,7 @@ function [settings, EKF_track]  = initSettingsNOOELEC()
 %% Processing settings ====================================================
 % Number of milliseconds to be processed used 40000 or greater for
 % navigation
-settings.msToProcess        = 55000;        %[ms]
+settings.msToProcess        = 40000;        %[ms]
 
 % Number of channels to be used for signal processing
 settings.numberOfChannels   = 8;
@@ -27,13 +27,13 @@ settings.numberOfChannels   = 8;
 % The NOELEC generates two files one to I and Q baseband data, therefore 
 % they are given the same root and just end in either I or Q
 
-logFileName = 'L1_m1kHz_1P5MHz_roof_point6_60s';
+logFileName = 'simScernioSat_ZRL_2150_45s';
 
 filenameI = [logFileName '_dataI.dat'];
 filenameQ = [logFileName '_dataQ.dat'];
 
 settings.fileNameI           = ['..\datalogs\' filenameI];
-settings.fileNameQ           = ['..\datalogs\' filenameQ];;
+settings.fileNameQ           = ['..\datalogs\' filenameQ];
 
 % Data type used to store one sample
 settings.dataType           = 'int8';
@@ -67,6 +67,12 @@ settings.acqSearchBand      = 20;           %[kHz]
 settings.acqThreshold       = 2.5;
 % Threshold for using the tracking measurement in the solution
 settings.trackingThreshold  = 25.0;
+% PLL bandwidth
+settings.bandwidthPLL = 5;
+% settings.bandwidthPLL = 15; % higher dynamics setting 
+% FLL bandwidth
+settings.bandwidthFLL = 0.5;
+% settings.bandwidthPLL = 2; % higher dynamics setting 
 
 %% Navigation solution settings ===========================================
 

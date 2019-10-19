@@ -287,7 +287,7 @@ for channelNr = 1:settings.numberOfChannels
                PDIcode = 0.001*coherentAccmNum;
                PDIcarr = 0.001*coherentAccmNum;
                % Adjust the gains accordingly and reduce the bandwidth
-               Bl_ca = 5;
+               Bl_ca = settings.bandwidthPLL;
                Kca1 = 2.4 * Bl_ca * PDIcarr;
                Kca2 = 2.88 * ((Bl_ca * PDIcarr)^2);
                Kca3 = 1.728 * ((Bl_ca * PDIcarr)^3); 

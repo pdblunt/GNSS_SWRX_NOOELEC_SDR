@@ -291,7 +291,7 @@ for channelNr = 1:settings.numberOfChannels
                    PDIcarr = 0.001*coherentAccmNum;
                    % adjust gains to new accumulation time
                    % FLL gains
-                   Bl_ca = 0.5;                   
+                   Bl_ca = settings.bandwidthFLL;                   
                    Kcf1 = 3.4 *(Bl_ca*PDIcarr);
                    Kcf2 = 2.04 *((Bl_ca*PDIcarr)^2);
                    % DLL gain
