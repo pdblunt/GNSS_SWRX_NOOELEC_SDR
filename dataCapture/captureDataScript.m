@@ -1,37 +1,27 @@
 close all; clear all;
 
 % logfile name
-logFileName = '..\dataLogs\trial1p5MHz';
+logFileName = '..\dataLogs\39_parkside_2p4MHz_GP_pot3';
 
 filenameI = [logFileName '_dataI.dat'];
 filenameQ = [logFileName '_dataQ.dat'];
 fidI = fopen(filenameI, 'w');
 fidQ = fopen(filenameQ, 'w');
 
-% log duration in seconds
+centerFrequency = 1575.32e6;
+sampleRate = 2.4e6;
 logTime = 60;
-sampleRate=1.5e6;
-samplesPerFrame=1024;
-frames = ceil(logTime*sampleRate/samplesPerFrame);
 
-sdrsetup;
+rx = comm.SDRRTLReceiver('0',CenterFrequency = centerFrequency,...
+    SampleRate = sampleRate,OutputDataType = 'int16');
 
-% initialise the SDR receiver
-GNSS_SDR_capture_mex(false);
+[data,metadata] = capture(rx,logTime,'Seconds');
+release(rx);
 
-dataFrame = double(zeros(samplesPerFrame,1));
-lost = uint32(zeros(frames,1));
-
-for p=1:frames
-    [dataFrame, lost(p)] = GNSS_SDR_capture_mex(false);
-    
-    fwrite(fidI, real(dataFrame), 'int8');
-    fwrite(fidQ, imag(dataFrame), 'int8');
-end
-
-lostSamples=sum(lost)
-
-GNSS_SDR_capture_mex(true);
+disp('data capture complete writing to file')
+fwrite(fidI, real(data), 'int8');
+fwrite(fidQ, imag(data), 'int8');
 
 fclose(fidI);
 fclose(fidQ);
+
