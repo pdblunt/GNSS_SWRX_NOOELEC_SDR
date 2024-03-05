@@ -3,7 +3,7 @@
 ## dataCapture folder
 This folder contains a simulink model, **Record_and_view_L1_Signal.slx** , that allows you to configure the Nooelec SDR front end, visualise the raw data in the time and frequency domains prior to data logging (for test).
 
-A reliable method of capturing data without dropping samples from the SDR is to use 'captureDataScipt.m'.  This executes a mex file of the function 'GNSS_SDR_capture.m'.  If you want to change the settings of the SDR change 'GNSS_SDR_capture.m' and then run 'codegen GNSS_SDR_capture -args false' in the Matlab command window before running 'captureDataScipt.m'.
+A reliable method of capturing data without dropping samples from the SDR is to use 'captureDataScipt.m'.  This executes a script which records data from the SDR directly to Matlab memmory and then writes to file.  This is more realiable than the simulink model so you don't drop samples.
 
 ## dataLogs folder
 Default folder location for raw data logs.
