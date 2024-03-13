@@ -1,7 +1,7 @@
 close all; clear all;
 
 % logfile name
-logFileName = '..\dataLogs\39_parkside_2p4MHz_GP_pot3';
+logFileName = '..\dataLogs\testCapture';
 
 filenameI = [logFileName '_dataI.dat'];
 filenameQ = [logFileName '_dataQ.dat'];
