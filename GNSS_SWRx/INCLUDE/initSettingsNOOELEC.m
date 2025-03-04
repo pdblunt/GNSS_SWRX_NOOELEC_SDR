@@ -27,7 +27,7 @@ settings.numberOfChannels   = 8;
 % The NOELEC generates two files one to I and Q baseband data, therefore 
 % they are given the same root and just end in either I or Q
 
-logFileName = 'simScernioSat_ZRL_2150_45s';
+logFileName = 'testCapture';
 
 filenameI = [logFileName '_dataI.dat'];
 filenameQ = [logFileName '_dataQ.dat'];
