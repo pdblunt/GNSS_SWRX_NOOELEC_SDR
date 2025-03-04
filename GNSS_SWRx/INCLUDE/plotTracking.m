@@ -115,18 +115,23 @@ for channelNr = channelList
         grid  (handles(3, 1));
         axis  (handles(3, 1), 'tight');
         xlabel(handles(3, 1), 'Time (s)');
-        ylabel(handles(3, 1), 'Amplitude');
+        ylabel(handles(3, 1), 'Carrier Frequency (Hz)');
         title (handles(3, 1), 'Filtered PLL discriminator');
 
         %----- DLL discriminator unfiltered--------------------------------
+        L1_lamda = settings.c/1575.42e6;
+        codeMinusCarrier = trackResults(channelNr).dllDiscrFilt*1540-trackResults(channelNr).pllDiscrFilt;
+        codeMinusCarrierZeroMean=codeMinusCarrier-mean(codeMinusCarrier(10000:end));
+        codeMinusCarrierMeters = codeMinusCarrierZeroMean*L1_lamda/sqrt(2);
+
         plot  (handles(3, 2), timeAxisInSeconds, ...
-                              trackResults(channelNr).dllDiscr, 'r');      
+                              codeMinusCarrierMeters, 'r');      
 
         grid  (handles(3, 2));
         axis  (handles(3, 2), 'tight');
         xlabel(handles(3, 2), 'Time (s)');
-        ylabel(handles(3, 2), 'Amplitude');
-        title (handles(3, 2), 'Raw DLL discriminator');
+        ylabel(handles(3, 2), 'Code Jitter (m)');
+        title (handles(3, 2), 'Code tracking errors');
 
         %----- DLL discriminator filtered----------------------------------
         plot  (handles(3, 3), timeAxisInSeconds, ...
