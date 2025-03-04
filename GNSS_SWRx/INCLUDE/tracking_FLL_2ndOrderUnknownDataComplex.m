@@ -296,7 +296,7 @@ for channelNr = 1:settings.numberOfChannels
                    Kcf2 = 2.04 *((Bl_ca*PDIcarr)^2);
                    % DLL gain
                    Bl_co = 0.1;
-                   Kco = 4 * Bl_co * PDIcode;   
+                   Kco =  Bl_co * PDIcode;   
                    % adjust the stored correlations and lock indicators
                    I_P_D = coherentAccmNum * I_P_D;
                    Q_P_D = coherentAccmNum * Q_P_D;
