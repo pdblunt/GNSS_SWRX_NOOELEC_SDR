@@ -9,7 +9,7 @@ fidI = fopen(filenameI, 'w');
 fidQ = fopen(filenameQ, 'w');
 
 centerFrequency = 1575.32e6;
-sampleRate = 2.4e6;
+sampleRate = 1.5e6;
 logTime = 60;
 
 rx = comm.SDRRTLReceiver('0',CenterFrequency = centerFrequency,...
