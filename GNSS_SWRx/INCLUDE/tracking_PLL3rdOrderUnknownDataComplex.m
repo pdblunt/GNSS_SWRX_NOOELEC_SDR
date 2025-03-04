@@ -292,7 +292,7 @@ for channelNr = 1:settings.numberOfChannels
                Kca2 = 2.88 * ((Bl_ca * PDIcarr)^2);
                Kca3 = 1.728 * ((Bl_ca * PDIcarr)^3); 
                Bl_co = 0.1;
-               Kco = 4 * Bl_co * PDIcode;
+               Kco = Bl_co * PDIcode;
             end
             
 %% update when accumulations are ready ----------------------------------
